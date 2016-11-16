@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.cleo.clarify.storage.grpc";
+option java_outer_classname = "StorageServiceProto";
+
+package com.cleo.clarify.storage.grpc;
+
+service StorageService {
+
+	rpc store(stream ObjectData) returns (ObjectInfo) {}
+	
+	rpc retrieve(ObjectId) returns (stream ObjectData) {}
+	
+	rpc retrieveInfo(ObjectId) returns (ObjectInfo) {}
+
+  rpc delete(ObjectId) returns (DeleteResponse) {}
+  
+}
+
+message ObjectData {
+  bytes data = 1;
+}
+
+message ObjectInfo {
+  string id = 1;
+  int32 chunkCount = 2;
+  int32 chunkSize = 3;
+  int64 objectSize = 4;
+}
+
+message ObjectId {
+  string id = 1;
+}
+
+message DeleteResponse {
+  bool success = 1;
+}
