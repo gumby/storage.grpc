@@ -19,7 +19,8 @@ service StorageService {
 }
 
 message ObjectData {
-  bytes data = 1;
+  int32 index = 1;
+  bytes data = 2;
 }
 
 message ObjectInfo {

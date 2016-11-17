@@ -51,7 +51,7 @@ protobuf {
 }
 
 group 'com.cleo.clarify.storage.grpc'
-version '0.3'
+version '0.4'
 
 def libraryGroupId = 'com.cleo.clarify'
 def libraryArtifactId = 'storage.grpc'
